@@ -3,7 +3,8 @@ namespace notebook.entity
     public class Gift
     {
         private bool Integrity { get; }
-        public async Task<bool> SendTo(Person person)
+        
+        public async Task<bool> SendToAsync(Person person)
         {
             try
             {

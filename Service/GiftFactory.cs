@@ -2,7 +2,8 @@ namespace notebook.service
 {
     public class GiftFactory
     {
-        public async Task<Gift> CreateGift(Person person, Skill skill, Collection<Feeling> motivation)
+        public async Task<Gift> CreateGiftAsync(
+            Person person, Skill skill, Collection<Feeling> motivation)
         {
             bool ideaAdded = false;
 
@@ -19,7 +20,7 @@ namespace notebook.service
                 }
             }
             
-            Gift gift = await (Gift)person.CreateDeriverable(skill);
+            Gift gift = await (Gift)person.CreateDeriverableAsync(skill);
 
             return gift;
         }

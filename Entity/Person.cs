@@ -4,8 +4,7 @@ namespace notebook.entity
     {
         public string Proffesion { get; }
         public Collection<Skill> Skills { get; }
-
-        private Collection<Idea> Ideas { get; }
+        public Collection<Idea> Ideas { get; }
 
         public Person GetByReference(string ref)
         {
@@ -17,7 +16,7 @@ namespace notebook.entity
         {
             return this
                 .Ideas
-                .Any(t => t.Contains(interactable));
+                .Any(i => i.Contains(interactable));
         }
 
         public Collection<Feeling> GetFeelings(Interactable interactable)
@@ -26,7 +25,7 @@ namespace notebook.entity
                 "You know that people are complicated, right?");
         }
 
-        public async Task<Deriverable> CreateDeriverable(Skill skill)
+        public async Task<Deriverable> CreateDeriverableAsync(Skill skill)
         {
             throw new NotImplementedException(
                 "So you reached this line");

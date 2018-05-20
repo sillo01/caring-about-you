@@ -21,11 +21,11 @@ namespace notebook
                         Collection<Feeling> myMotivation = me.GetFeelings(you);
 
                         Gift myGift = GiftFactory
-                            .CreateGift(me, myMainSkill, myMotivation)
+                            .CreateGiftAsync(me, myMainSkill, myMotivation)
                             .Result;
 
                         bool giftAccepted = myGift
-                            .SendTo(you)
+                            .SendToAsync(you)
                             .Result;
 
                         if (giftAccepted)
@@ -43,11 +43,12 @@ namespace notebook
                         {
                             myGift.Destroy();
                         }
-                    }
+                    } // Do I need to explain what I mean with "available"?
                     catch(PersonNotAvailableException ex)
                     {
-                        // Do I need to define available?
-                        continue;
+                        // May throw InvalidOperationException
+                        me.Ideas
+                            .RemoveAll(i => i.Contains(you));
                     }
                 }
             }
