@@ -1,0 +1,1 @@
+It is said that reading good code should be like reading good prose. So let's write some good prose.
