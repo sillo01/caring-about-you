@@ -9,7 +9,10 @@ namespace notebook
 
             while(me.DoThinkAbout(you))
             {
-
+                if(Calendar.Today.CelebratedProfession == you.Profession)
+                {
+                    
+                }
             }
         }
     }

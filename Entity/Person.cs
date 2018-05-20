@@ -1,8 +1,10 @@
 namespace notebook.entity
 {
-    public class Person
+    public class Person : Thinkable
     {
-        private Collection<Idea> Toughs { get; }
+        public string Proffesion { get; }
+        public Collection<Skill> Skills { get; }
+        private Collection<Idea> Ideas { get; }
 
         public Person GetByReference(string ref)
         {
@@ -10,11 +12,11 @@ namespace notebook.entity
                 "A way to retrieve a person by code was not found");
         }
 
-        public bool DoThinkAbout(Person person)
+        public bool DoThinkAbout(Thinkable thinkable)
         {
             return this
-                .Toughs
-                .Any(t => t.Contains(person));
+                .Ideas
+                .Any(t => t.Contains(thinkable));
         }
     }
 }
