@@ -27,10 +27,27 @@ namespace notebook
                         bool giftAccepted = myGift
                             .SendTo(you)
                             .Result;
+
+                        if (giftAccepted)
+                        {
+                            foreach(var feeling in me.GetFeelings(you))
+                            {
+                                // TODO: remove validation
+                                if(!feeling.IsRated)
+                                {
+                                    Console.WriteLine(feeling);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            myGift.Destroy();
+                        }
                     }
                     catch(PersonNotAvailableException ex)
                     {
-                        Console.WriteLine("Do I need to define available?")
+                        // Do I need to define available?
+                        continue;
                     }
                 }
             }
