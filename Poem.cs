@@ -20,11 +20,17 @@ namespace notebook
 
                         Collection<Feeling> myMotivation = me.GetFeelings(you);
 
-                        Gift myGift = GiftFactory.CreateGift(me, myMainSkill, myMotivation).Result;
+                        Gift myGift = GiftFactory
+                            .CreateGift(me, myMainSkill, myMotivation)
+                            .Result;
+
+                        bool giftAccepted = myGift
+                            .SendTo(you)
+                            .Result;
                     }
                     catch(PersonNotAvailableException ex)
                     {
-
+                        Console.WriteLine("Do I need to define available?")
                     }
                 }
             }

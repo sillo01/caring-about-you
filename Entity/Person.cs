@@ -23,7 +23,13 @@ namespace notebook.entity
         public Collection<Feeling> GetFeelings(Interactable interactable)
         {
             throw new NotImplementedException(
-                "You know that people are complated, right?");
+                "You know that people are complicated, right?");
+        }
+
+        public async Task<Deriverable> CreateDeriverable(Skill skill)
+        {
+            throw new NotImplementedException(
+                "So you reached this line");
         }
     }
 }
