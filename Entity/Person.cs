@@ -4,6 +4,7 @@ namespace notebook.entity
     {
         public string Proffesion { get; }
         public Collection<Skill> Skills { get; }
+        
         private Collection<Idea> Ideas { get; }
 
         public Person GetByReference(string ref)

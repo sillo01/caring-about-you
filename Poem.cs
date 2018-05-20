@@ -11,7 +11,10 @@ namespace notebook
             {
                 if(Calendar.Today.CelebratedProfession == you.Profession)
                 {
-                    
+                    var mainSkill = me
+                        .Skills
+                        .OrderByDescending(s => s.Profficency)
+                        .First();
                 }
             }
         }
