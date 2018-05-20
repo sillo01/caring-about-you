@@ -1,10 +1,10 @@
 namespace notebook.entity
 {
-    public class Person : Thinkable
+    public class Person : Interactable
     {
         public string Proffesion { get; }
         public Collection<Skill> Skills { get; }
-        
+
         private Collection<Idea> Ideas { get; }
 
         public Person GetByReference(string ref)
@@ -13,11 +13,17 @@ namespace notebook.entity
                 "A way to retrieve a person by code was not found");
         }
 
-        public bool DoThinkAbout(Thinkable thinkable)
+        public bool DoThinkAbout(Interactable interactable)
         {
             return this
                 .Ideas
-                .Any(t => t.Contains(thinkable));
+                .Any(t => t.Contains(interactable));
+        }
+
+        public Collection<Feeling> GetFeelings(Interactable interactable)
+        {
+            throw new NotImplementedException(
+                "You know that people are complated, right?");
         }
     }
 }

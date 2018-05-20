@@ -11,10 +11,21 @@ namespace notebook
             {
                 if(Calendar.Today.CelebratedProfession == you.Profession)
                 {
-                    var mainSkill = me
-                        .Skills
-                        .OrderByDescending(s => s.Profficency)
-                        .First();
+                    try
+                    {
+                        Collection<Skill> myMainSkill = me
+                            .Skills
+                            .OrderByDescending(s => s.Profficency)
+                            .First();
+
+                        Collection<Feeling> myMotivation = me.GetFeelings(you);
+
+                        Gift myGift = GiftFactory.CreateGift(me, myMainSkill, myMotivation).Result;
+                    }
+                    catch(PersonNotAvailableException ex)
+                    {
+
+                    }
                 }
             }
         }
